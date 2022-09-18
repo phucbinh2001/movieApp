@@ -1,10 +1,11 @@
+import { BlurView } from "expo-blur";
 import React from "react";
 import { Image, View, Text, StyleSheet } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/Ionicons";
 
 export const TopBar = () => {
   return (
-    <View style={styles.topBarWrapper}>
+    <BlurView intensity={0} tint="dark" style={styles.topBarWrapper}>
       <Image
         style={styles.logo}
         source={{
@@ -24,7 +25,7 @@ export const TopBar = () => {
           color="#fff"
         />
       </View>
-    </View>
+    </BlurView>
   );
 };
 
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingLeft: 20,
     paddingRight: 20,
-    marginTop: 50,
+    paddingVertical: 10,
     alignItems: "center",
   },
   logo: {

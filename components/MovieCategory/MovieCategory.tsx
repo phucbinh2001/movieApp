@@ -12,9 +12,11 @@ import { MovieItem } from "../MovieItem/MovieItem";
 export const MovieCategory = ({
   data,
   title,
+  onPressDetail,
 }: {
   data?: Movie[];
   title: string;
+  onPressDetail: () => void;
 }) => {
   return (
     <>
@@ -27,7 +29,7 @@ export const MovieCategory = ({
         ]}
       >
         <Text style={{ fontSize: 20, fontWeight: "600" }}>{title}</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPressDetail}>
           <Text style={{ color: "#e21221" }}>See all</Text>
         </TouchableOpacity>
       </View>
@@ -37,7 +39,9 @@ export const MovieCategory = ({
         snapToAlignment="start"
       >
         {data?.map((movie) => (
-          <MovieItem movie={movie} />
+          <View style={styles.wrapper}>
+            <MovieItem key={movie.id} movie={movie} />
+          </View>
         ))}
       </ScrollView>
     </>
@@ -51,5 +55,9 @@ const styles = StyleSheet.create({
   heading: {
     height: 50,
     alignItems: "center",
+  },
+  wrapper: {
+    width: 150,
+    marginLeft: 20,
   },
 });

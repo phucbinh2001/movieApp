@@ -13,7 +13,7 @@ export const MovieItem = ({ movie }: { movie: Movie }) => {
     <TouchableOpacity>
       <View>
         <ImageBackground
-          imageStyle={{ resizeMode: "contain" }}
+          imageStyle={{ resizeMode: "cover" }}
           style={styles.movieItem}
           source={{
             uri: `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
@@ -27,11 +27,14 @@ export const MovieItem = ({ movie }: { movie: Movie }) => {
 };
 const styles = StyleSheet.create({
   movieItem: {
+    minWidth: 150,
+    width: "100%",
+    flex: 1,
     aspectRatio: 2 / 3,
-    width: 150,
     borderRadius: 10,
     overflow: "hidden",
-    marginLeft: 20,
+    backgroundColor: "gray",
+    // marginLeft: 20,
   },
   badge: {
     backgroundColor: "#e21221",
